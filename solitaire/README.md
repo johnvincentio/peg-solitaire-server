@@ -36,7 +36,9 @@ http://localhost:8080/solution?id=637
 
 ## Build executable
 
-Create executable JAR
+Run the script `create-package` which will put the Jar in `/Users/jv/Desktop/MyDevelopment/github/projects/peg-solitaire-server`
+
+or, create executable JAR
 
 ```
 ./mvnw clean package
