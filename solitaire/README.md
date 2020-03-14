@@ -1,6 +1,8 @@
 
 # Solitaire Microservice
 
+[Jackson Tutorial](https://www.journaldev.com/2324/jackson-json-java-parser-api-example-tutorial)
+
 [Spring Initializr])https://start.spring.io/)
 
 Dependency: Spring Web
