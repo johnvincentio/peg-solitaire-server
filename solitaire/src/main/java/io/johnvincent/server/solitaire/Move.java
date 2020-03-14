@@ -6,11 +6,6 @@ public class Move {
 
 	public Move() {}
 
-//	public Move (String row, String column) {
-//		this.row = row;
-//		this.column = column;
-//	}
-
 	public int getRow() {return row;}
 	public int getColumn() {return column;}
 
