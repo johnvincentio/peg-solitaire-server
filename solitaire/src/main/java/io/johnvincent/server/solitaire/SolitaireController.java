@@ -48,7 +48,9 @@ public class SolitaireController {
 		try {
 			File file = resource.getFile();
 			buf = new BufferedReader(new FileReader(file));
-			while ((line = buf.readLine()) != null) {codeList.add(new Solution(line));}
+			while ((line = buf.readLine()) != null) {
+				codeList.add(new Solution(line));
+			}
 			buf.close();
 			buf = null;
 		}

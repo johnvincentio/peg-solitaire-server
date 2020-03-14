@@ -6,8 +6,7 @@ import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import io.johnvincent.server.solitaire.Tester;
-
+import io.johnvincent.server.solitaire.Solution;
 
 public class FromJSONToPOJO {
 
@@ -37,9 +36,9 @@ public class FromJSONToPOJO {
 		ObjectMapper mapper = new ObjectMapper();
 		try
 		{
-			Tester tester = mapper.readValue(json, Tester.class);
+			Solution solution = mapper.readValue(json, Solution.class);
 
-			System.out.println(tester);
+			System.out.println(solution);
 		} 
 		catch (JsonGenerationException e) 
 		{

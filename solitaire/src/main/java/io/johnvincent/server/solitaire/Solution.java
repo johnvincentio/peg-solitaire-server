@@ -1,21 +1,41 @@
 package io.johnvincent.server.solitaire;
 
-import java.io.Serializable;
+public class Solution {
+	private String status;
+	private int type;
+	private Move from;
+	private Move via;
+	private Move to;
 
-public class Solution implements Serializable {
-	private static final long serialVersionUID = 8537639494609722536L;
+	public Solution() {}
 
-	private String line;
+	public String getStatus() {return status;}
+	public int getType() {return type;}
+	public Move getFrom() {return from;}
+	public Move getVia() {return via;}
+	public Move getTo() {return to;}
 
-	public Solution (String line) {
-		this.line = line;
+	public void setStatus (String status) {
+		System.out.println("set status "+status);
+		this.status = status;
+	}
+	public void setType(int type) {
+		this.type = type;
+	}
+	public void setFrom (Move from) {
+		System.out.println("set from "+from);
+		this.from = from;
+	}
+	public void setVia (Move via) {
+		System.out.println("set via "+via);
+		this.via = via;
+	}
+	public void setTo (Move to) {
+		System.out.println("set to "+to);
+		this.to = to;
 	}
 
-	public String getLine() {return line;}
-
-	public void setLine (String line) {this.line = line;}
-
 	public String toString() {
-		return "("+getLine()+")";
+		return "("+getStatus()+", "+getType()+", "+getFrom()+", "+getVia()+", "+getTo()+")";
 	}
 }
