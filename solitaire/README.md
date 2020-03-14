@@ -15,6 +15,14 @@ Start Eclipse-jee from `/Users/jv/Desktop/MyDevelopment/github/projects/peg-soli
 
 Import Project from `/Users/jv/Desktop/MyDevelopment/github/projects/peg-solitaire-server`
 
+## Server Port
+
+`application.properties`
+
+add
+
+`server.port=9417`
+
 ## Execute the service
 
 ```
@@ -37,6 +45,12 @@ http://localhost:8080/solution?id=637
 ## Build executable
 
 Run the script `create-package` which will put the Jar in `/Users/jv/Desktop/MyDevelopment/github/projects/peg-solitaire-server`
+
+and
+
+```
+java -jar solitaire.jar
+```
 
 or, create executable JAR
 
