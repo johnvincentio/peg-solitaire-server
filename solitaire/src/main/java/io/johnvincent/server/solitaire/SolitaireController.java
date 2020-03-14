@@ -24,7 +24,7 @@ public class SolitaireController {
 	public List<Solution> findSolution(@RequestParam(value = "id", defaultValue = "0") int id) {
 		StringBuffer sb = getFileContents(id);
 		List<Solution> list = Utils.JSONArraytoListObject(sb.toString());
-		System.out.println("result "+list.toString());
+//		System.out.println("result "+list.toString());
 		return list;
 	}
 	

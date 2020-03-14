@@ -31,11 +31,11 @@ public class Utils {
 	}
 
 	public static List<Solution> JSONArraytoListObject(String json) {
-		System.out.println("Json "+json);
+//		System.out.println("Json "+json);
 		ObjectMapper mapper = new ObjectMapper();
 		try {
 			List<Solution> list = Arrays.asList(mapper.readValue(json, Solution[].class));
-			System.out.println("list is: "+list);
+//			System.out.println("list is: "+list);
 			return list;
 		} 
 		catch (JsonGenerationException e) {

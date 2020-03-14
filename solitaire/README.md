@@ -25,12 +25,34 @@ cd /Users/jv/Desktop/MyDevelopment/github/projects/peg-solitaire-server/solitair
 ## Test the service
 
 ```
-http://localhost:8080/greeting
+http://localhost:8080/solution
 ```
 
 or
 
 ```
-http://localhost:8080/greeting?name=User
+http://localhost:8080/solution?id=637
 ```
+
+## Build executable
+
+Create executable JAR
+
+```
+./mvnw clean package
+```
+
+and run two instances
+
+```
+java -jar target/rest-service-cors-0.0.1-SNAPSHOT.jar
+```
+
+and
+
+```
+java -jar target/rest-service-cors-0.0.1-SNAPSHOT.jar --server.port=9000
+```
+
+
 
