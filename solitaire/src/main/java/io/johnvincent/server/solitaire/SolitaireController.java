@@ -51,7 +51,7 @@ public class SolitaireController {
 			File file = resource.getFile();
 			buf = new BufferedReader(new FileReader(file));
 			while ((line = buf.readLine()) != null) {
-				System.out.println("line : "+line);
+//				System.out.println("line : "+line);
 				result.append(line);
 			}
 			buf.close();
@@ -76,81 +76,3 @@ public class SolitaireController {
 		return result;
 	}
 }
-
-/*
- * 	private static Solutions getSolution(int id) {
-		System.out.println("id "+id);
-		String filename = getFilename(id);
-		System.out.println("filename "+filename);
-		Resource resource = new ClassPathResource(filename);
-		Solutions solutions = new Solutions();
-		BufferedReader buf = null;
-		String line;
-		try {
-			File file = resource.getFile();
-			buf = new BufferedReader(new FileReader(file));
-			while ((line = buf.readLine()) != null) {
-				System.out.println("line : "+line);
-				solutions.add(Utils.JSONtoObject(line));
-			}
-			buf.close();
-			buf = null;
-		}
-		catch (IOException exception) {
-			System.out.println("Exception "+exception.getMessage());
-			System.out.println("Trouble reading file "+filename);
-//			exception.printStackTrace();
-		}
-		finally {
-			try {
-				if (buf != null) buf.close();
-			}
-			catch (IOException exception2) {
-				System.out.println("Exception "+exception2.getMessage());
-				System.out.println("Trouble closing file "+filename);
-				exception2.printStackTrace();
-			}
-		}
-		buf = null;
-		return solutions;
-	}
- */
-
-/*
-	private static void test() {
-		Resource resource = new ClassPathResource(getFilename());
-		InputStream input = null;
-		File file = null;
-		try {
-			input = resource.getInputStream();
-			file = resource.getFile();
-			System.out.println("File "+file);
-		}
-		catch (IOException exception) {
-			System.out.println("Exception "+exception.getMessage());
-			System.out.println("Trouble reading file "+file.getPath());
-//			exception.printStackTrace();
-		}
-		finally {
-			try {
-				if (input != null) input.close();
-			}
-			catch (IOException exception2) {
-				System.out.println("Exception "+exception2.getMessage());
-				System.out.println("Trouble closing file "+file.getPath());
-				exception2.printStackTrace();
-			}
-		}
-	}
-*/
-
-
-//@GetMapping("/greeting")
-//public Greeting greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
-//	int jv = getRandom(1, TOTAL_SOLUTIONS);
-//	System.out.println("getFilename() "+getFilename());
-//	Solutions result = getSolution();
-//	System.out.println("result "+result.toString());
-////	return new Greeting(counter.incrementAndGet(), String.format(template, name));
-//	return new Greeting(counter.incrementAndGet(), getFilename());
-//}

@@ -8,16 +8,6 @@ public class Employee {
   
     public Employee() {}
     
-//    public Employee(Integer id, String name, Integer age, String location) {
-//        super();
-//        this.id = id;
-//        this.name = name;
-//        this.age = age;
-//        this.location = location;
-//    }
- 
-    //Setters and Getters will be added here
-    
 	public Integer getId() {return id;}
 	public String getName() {return name;}
 	public Integer getAge() {return age;}

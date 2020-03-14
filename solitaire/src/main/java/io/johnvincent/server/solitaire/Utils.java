@@ -11,8 +11,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class Utils {
 
 	public static Solution JSONtoObject(String json) {
-//		String json = "{\"status\":\"OK\",\"from\":{\"row\":1,\"column\":3},\"via\":{\"row\":2,\"column\":3},\"to\":{\"row\":3,\"column\":3},\"type\":3}";
-
 		System.out.println("Json "+json);
 		ObjectMapper mapper = new ObjectMapper();
 		try
@@ -50,5 +48,3 @@ public class Utils {
 		return null;
 	}
 }
-
-// List<Solution> solutions = Arrays.asList(mapper.readValue(json, Solution[].class));
