@@ -52,6 +52,18 @@ and
 java -jar solitaire.jar
 ```
 
+Test using
+
+```
+http://localhost:9417/solution?id=10000
+```
+
+or
+
+```
+wget http://localhost:9417/solution?id=10000
+```
+
 or, create executable JAR
 
 ```
@@ -63,4 +75,35 @@ and
 ```
 java -jar target/solitaire-0.0.1-SNAPSHOT.jar --server.port=9317
 ```
+
+## Deploy to Ubuntu
+
+### Install and Configure Java
+
+Update the system
+
+```
+sudo apt-get update && apt-get upgrade
+```
+
+install the default JDK
+
+```
+sudo apt-get install default-jdk
+```
+
+Check java version
+
+```
+java -version
+```
+
+
+
+
+
+
+
+
+
 
