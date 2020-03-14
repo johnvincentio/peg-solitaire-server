@@ -42,17 +42,9 @@ Create executable JAR
 ./mvnw clean package
 ```
 
-and run two instances
-
-```
-java -jar target/rest-service-cors-0.0.1-SNAPSHOT.jar
-```
-
 and
 
 ```
-java -jar target/rest-service-cors-0.0.1-SNAPSHOT.jar --server.port=9000
+java -jar target/solitaire-0.0.1-SNAPSHOT.jar --server.port=9317
 ```
-
-
 

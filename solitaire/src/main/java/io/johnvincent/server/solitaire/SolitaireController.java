@@ -1,13 +1,10 @@
 package io.johnvincent.server.solitaire;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.List;
-
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.ClassPathResource;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -44,12 +41,18 @@ public class SolitaireController {
 		String filename = getFilename(id);
 		System.out.println("id "+id+" filename "+filename);
 
-		Resource resource = new ClassPathResource(filename);
+		InputStream input = SolitaireController.class.getResourceAsStream(filename);
+        if (input == null) {
+            // this is how we load file within editor (eg eclipse)
+            input = SolitaireController.class.getClassLoader().getResourceAsStream(filename);
+        }
+
+//		Resource resource = new ClassPathResource(filename);
 		BufferedReader buf = null;
 		String line;
 		try {
-			File file = resource.getFile();
-			buf = new BufferedReader(new FileReader(file));
+//			File file = resource.getFile();
+			buf = new BufferedReader(new InputStreamReader(input));
 			while ((line = buf.readLine()) != null) {
 //				System.out.println("line : "+line);
 				result.append(line);
@@ -76,3 +79,42 @@ public class SolitaireController {
 		return result;
 	}
 }
+
+/*
+private static StringBuffer getFileContents(int id) {
+StringBuffer result = new StringBuffer();
+String filename = getFilename(id);
+System.out.println("id "+id+" filename "+filename);
+
+Resource resource = new ClassPathResource(filename);
+BufferedReader buf = null;
+String line;
+try {
+	File file = resource.getFile();
+	buf = new BufferedReader(new FileReader(file));
+	while ((line = buf.readLine()) != null) {
+//		System.out.println("line : "+line);
+		result.append(line);
+	}
+	buf.close();
+	buf = null;
+}
+catch (IOException exception) {
+	System.out.println("Exception "+exception.getMessage());
+	System.out.println("Trouble reading file "+filename);
+//	exception.printStackTrace();
+}
+finally {
+	try {
+		if (buf != null) buf.close();
+	}
+	catch (IOException exception2) {
+		System.out.println("Exception "+exception2.getMessage());
+		System.out.println("Trouble closing file "+filename);
+		exception2.printStackTrace();
+	}
+}
+buf = null;
+return result;
+}
+*/
