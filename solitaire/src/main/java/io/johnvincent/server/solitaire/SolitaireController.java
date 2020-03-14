@@ -12,10 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-//import org.codehaus.jackson.JsonParseException;
-//import org.codehaus.jackson.map.JsonMappingException;
-//import org.codehaus.jackson.map.ObjectMapper;
-
 @RestController
 public class SolitaireController {
 
@@ -23,8 +19,8 @@ public class SolitaireController {
 
 	private static final String template = "solutions/%d.txt";
 
-	@GetMapping("/greeting")
-	public Solutions greeting(@RequestParam(value = "id", defaultValue = "0") int id) {
+	@GetMapping("/solution")
+	public Solutions findSolution(@RequestParam(value = "id", defaultValue = "0") int id) {
 		Solutions result = getSolution(id);
 //		System.out.println("result "+result.toString());
 		return result;

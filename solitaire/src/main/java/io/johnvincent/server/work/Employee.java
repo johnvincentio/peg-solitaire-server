@@ -1,4 +1,4 @@
-package io.johnvincent.server.solitaire;
+package io.johnvincent.server.work;
 
 public class Employee {
     private Integer id;
