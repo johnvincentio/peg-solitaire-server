@@ -30,7 +30,7 @@ public class FromJSONToPOJO {
 	}
 
 	public static void test2() {
-		String json = "{\"status\":\"OK\",\"from\":{\"row\":1,\"column\":3}}";
+		String json = "{\"status\":\"OK\",\"from\":{\"row\":1,\"column\":3},\"type\":3}";
 
 		ObjectMapper mapper = new ObjectMapper();
 		try
