@@ -9,8 +9,9 @@ import io.johnvincent.server.work.FromJSONToPOJO;
 public class SolitaireApplication {
 
 	public static void main(String[] args) {
-		FromJSONToPOJO.test1();
-		FromJSONToPOJO.test2();
+//		FromJSONToPOJO.test1();
+//		FromJSONToPOJO.test2();
+		FromJSONToPOJO.test5();
 		SpringApplication.run(SolitaireApplication.class, args);
 	}
 

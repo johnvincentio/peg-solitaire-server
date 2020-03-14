@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ClassPathResource;
@@ -20,10 +21,11 @@ public class SolitaireController {
 	private static final String template = "solutions/%d.txt";
 
 	@GetMapping("/solution")
-	public Solutions findSolution(@RequestParam(value = "id", defaultValue = "0") int id) {
-		Solutions result = getSolution(id);
-//		System.out.println("result "+result.toString());
-		return result;
+	public List<Solution> findSolution(@RequestParam(value = "id", defaultValue = "0") int id) {
+		StringBuffer sb = getFileContents(id);
+		List<Solution> list = Utils.JSONArraytoListObject(sb.toString());
+		System.out.println("result "+list.toString());
+		return list;
 	}
 	
 	private static String getFilename(int id) {
@@ -37,19 +39,20 @@ public class SolitaireController {
 		return (int)(Math.random() * ((max - min) + 1)) + min;
 	}
 
-	private static Solutions getSolution(int id) {
-		System.out.println("id "+id);
+	private static StringBuffer getFileContents(int id) {
+		StringBuffer result = new StringBuffer();
 		String filename = getFilename(id);
-		System.out.println("filename "+filename);
+		System.out.println("id "+id+" filename "+filename);
+
 		Resource resource = new ClassPathResource(filename);
-		Solutions codeList = new Solutions();
 		BufferedReader buf = null;
 		String line;
 		try {
 			File file = resource.getFile();
 			buf = new BufferedReader(new FileReader(file));
 			while ((line = buf.readLine()) != null) {
-				codeList.add(new Solution(line));
+				System.out.println("line : "+line);
+				result.append(line);
 			}
 			buf.close();
 			buf = null;
@@ -70,9 +73,48 @@ public class SolitaireController {
 			}
 		}
 		buf = null;
-		return codeList;
+		return result;
 	}
 }
+
+/*
+ * 	private static Solutions getSolution(int id) {
+		System.out.println("id "+id);
+		String filename = getFilename(id);
+		System.out.println("filename "+filename);
+		Resource resource = new ClassPathResource(filename);
+		Solutions solutions = new Solutions();
+		BufferedReader buf = null;
+		String line;
+		try {
+			File file = resource.getFile();
+			buf = new BufferedReader(new FileReader(file));
+			while ((line = buf.readLine()) != null) {
+				System.out.println("line : "+line);
+				solutions.add(Utils.JSONtoObject(line));
+			}
+			buf.close();
+			buf = null;
+		}
+		catch (IOException exception) {
+			System.out.println("Exception "+exception.getMessage());
+			System.out.println("Trouble reading file "+filename);
+//			exception.printStackTrace();
+		}
+		finally {
+			try {
+				if (buf != null) buf.close();
+			}
+			catch (IOException exception2) {
+				System.out.println("Exception "+exception2.getMessage());
+				System.out.println("Trouble closing file "+filename);
+				exception2.printStackTrace();
+			}
+		}
+		buf = null;
+		return solutions;
+	}
+ */
 
 /*
 	private static void test() {
