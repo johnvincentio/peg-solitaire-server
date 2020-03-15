@@ -18,7 +18,8 @@ public class SolitaireController {
 
 	private static final String template = "solutions/%d.txt";
 
-	@CrossOrigin(origins = "http://localhost:9501")
+//	@CrossOrigin(origins = "http://localhost:9501")
+	@CrossOrigin(origins = "*", allowedHeaders = "*")
 	@GetMapping("/solution")
 	public List<Solution> findSolution(@RequestParam(value = "id", defaultValue = "0") int id) {
 		StringBuffer sb = getFileContents(id);
