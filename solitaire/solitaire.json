@@ -1,7 +1,7 @@
 {
     “apps”:[
     {
-        “name”:”pm2-peg-solitaire-server”,
+        “name”:”peg-solitaire-server”,
         “cwd”:”.”,
         “script”:”/usr/bin/java”,
         “args”:[
