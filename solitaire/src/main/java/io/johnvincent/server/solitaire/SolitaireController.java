@@ -6,6 +6,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.List;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,6 +18,7 @@ public class SolitaireController {
 
 	private static final String template = "solutions/%d.txt";
 
+	@CrossOrigin(origins = "http://localhost:9501")
 	@GetMapping("/solution")
 	public List<Solution> findSolution(@RequestParam(value = "id", defaultValue = "0") int id) {
 		StringBuffer sb = getFileContents(id);

@@ -98,8 +98,35 @@ Check java version
 java -version
 ```
 
+# TODO
 
+describe the deploy script
 
+handle-pm2
+
+describe solitaire.json
+
+pm2 list
+
+```
+peg-solitaire-server
+```
+
+pm2 show peg-solitaire-server 
+
+logs in
+
+```
+/home/jv/.pm2/pids
+```
+
+pm2 monit peg-solitaire-server 
+
+## Production Testing
+
+```
+https://www.peg-solitaire.johnvincent.io/api
+```
 
 
 
